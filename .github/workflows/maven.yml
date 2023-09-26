@@ -19,11 +19,18 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: oracle
+          java-version: 11
+          cache: maven
+
+      - name: Build Java 11 with Maven
+        run: ./mvnw install
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: oracle
           java-version: 21
           cache: maven
 
       - name: Build Java 21 with Maven
         run: ./mvnw -f java21/pom.xml install
-
-      - name: Build Java 11 with Maven
-        run: ./mvnw install
