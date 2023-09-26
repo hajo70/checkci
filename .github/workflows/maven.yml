@@ -24,8 +24,14 @@ jobs:
             17
           cache: maven
 
+      - name: Show java version
+        run: java -version
+
+      - name: Show java path
+        run: which java
+
       - name: Build Java 17 with Maven
-        run: ./mvnw install
+        run:  ./mvnw install
 
       - name: Build Java 21 with Maven
         run: ./mvnw -f java21/pom.xml install
