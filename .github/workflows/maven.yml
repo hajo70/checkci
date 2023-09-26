@@ -22,7 +22,7 @@ jobs:
           java-version: 17
           cache: maven
 
-      - name: Build Java 11 with Maven
+      - name: Build Java 17 with Maven
         run: ./mvnw install
 
       - name: Set up JDK
