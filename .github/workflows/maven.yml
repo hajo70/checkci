@@ -24,6 +24,10 @@ jobs:
             17
           cache: maven
 
+      - run: ls -l ~/.m2
+      - run: cat ~/.m2/toolchains.xml
+      - run: cat ~/.m2/settings.xml
+
       - name: Show java version
         run: java -version
 
@@ -33,8 +37,3 @@ jobs:
       - name: Build Java 17 with Maven
         run:  ./mvnw install
 
-      - run: ls -l ~/.m2
-      - run: cat ~/.m2/toolchain.xml
-      
-      - name: Build Java 21 with Maven
-        run: ./mvnw -f java21/pom.xml install
