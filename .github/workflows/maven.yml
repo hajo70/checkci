@@ -38,3 +38,7 @@ jobs:
 
       - name: Build Java 8 Module
         run:  ./mvnw install
+
+      - run: ./mvnw exec:java
+
+      - run: java -jar target/check-ci-base-1.0-SNAPSHOT.jar
