@@ -18,22 +18,23 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: oracle
+          distribution: temurin
           java-version: |
-            21
-            17
+            8
+            11
+          mvn-toolchain-id: |
+            jdk8
+            jdk11
           cache: maven
 
       - run: ls -l ~/.m2
       - run: cat ~/.m2/toolchains.xml
       - run: cat ~/.m2/settings.xml
+      - run: java -version
+      - run: which java
 
-      - name: Show java version
-        run: java -version
+      - name: Build Java 11 Module
+        run:  ./mvnw -f java11/pom.xml install
 
-      - name: Show java path
-        run: which java
-
-      - name: Build Java 17 with Maven
+      - name: Build Java 8 Module
         run:  ./mvnw install
-
