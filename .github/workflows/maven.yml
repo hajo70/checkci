@@ -33,5 +33,8 @@ jobs:
       - name: Build Java 17 with Maven
         run:  ./mvnw install
 
+      - run: ls -l ~/.m2
+      - run: cat ~/.m2/toolchain.xml
+      
       - name: Build Java 21 with Maven
         run: ./mvnw -f java21/pom.xml install
